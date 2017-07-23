@@ -1,8 +1,8 @@
 \c radlad;
 
 DROP DATABASE IF EXISTS todo_app;
-
 DROP USER IF EXISTS michael;
+
 CREATE USER michael WITH ENCRYPTED PASSWORD 'stonebreaker';
 
 CREATE DATABASE todo_app WITH OWNER michael;
@@ -19,7 +19,7 @@ ALTER TABLE tasks ALTER COLUMN updated_at SET DEFAULT NOW ();
 INSERT INTO tasks VALUES ( DEFAULT, 'Study SQL', 'Complete this exercise', NOW (), NOW(), NULL );
 
 INSERT INTO tasks (title, description)
-VALUES('Study PostgreSQL', 'Read all of the documentation');
+  VALUES('Study PostgreSQL', 'Read all of the documentation');
 
 SELECT title FROM tasks WHERE completed_at IS NULL;
 
@@ -28,3 +28,12 @@ UPDATE tasks SET completed_at = NOW() WHERE title = 'Study SQL';
 SELECT title, description FROM tasks WHERE completed_at IS NULL;
 
 SELECT * FROM tasks ORDER BY created_at DESC;
+
+INSERT INTO tasks (title, description)
+  VALUES('mistake 1', 'a test entry');
+INSERT INTO tasks (title, description)
+  VALUES('mistake 2', 'another test entry');
+INSERT INTO tasks (title, description)
+  VALUES('mistake 3', 'another test entry');
+
+SELECT title FROM tasks WHERE title LIKE '%mistake%';
