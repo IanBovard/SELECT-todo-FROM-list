@@ -1,3 +1,5 @@
+\c radlad;
+
 DROP DATABASE IF EXISTS todo_app;
 
 DROP USER IF EXISTS michael;
@@ -11,3 +13,7 @@ CREATE TABLE tasks ( id SERIAL NOT NULL, title VARCHAR(255) NOT NULL, descriptio
 
 ALTER TABLE tasks DROP COLUMN completed;
 ALTER TABLE tasks ADD COLUMN completed_at TIMESTAMP WITHOUT time zone DEFAULT NULL;
+ALTER TABLE tasks ALTER COLUMN updated_at NOT NULL;
+ALTER TABLE tasks ALTER COLUMN updated_at SET DEFAULT NOW();
+
+\d tasks;
