@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS todo_app;
+
+DROP USER IF EXISTS michael;
+CREATE USER michael WITH ENCRYPTED PASSWORD 'stonebreaker';
+
+CREATE DATABASE todo_app WITH OWNER michael;
