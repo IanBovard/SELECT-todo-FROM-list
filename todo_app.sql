@@ -9,4 +9,5 @@ CREATE DATABASE todo_app WITH OWNER michael;
 
 CREATE TABLE tasks ( id SERIAL NOT NULL, title VARCHAR(255) NOT NULL, description TEXT, created_at TIMESTAMP WITHOUT time zone NOT NULL DEFAULT NOW(), updated_at TIMESTAMP WITHOUT time zone, completed BOOL NOT NULL DEFAULT false);
 
-\d tasks;
+ALTER TABLE tasks DROP COLUMN completed;
+ALTER TABLE tasks ADD COLUMN completed_at TIMESTAMP WITHOUT time zone DEFAULT NULL;
