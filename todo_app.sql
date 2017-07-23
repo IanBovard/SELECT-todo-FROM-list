@@ -18,5 +18,7 @@ ALTER TABLE tasks ALTER COLUMN updated_at SET DEFAULT NOW ();
 
 INSERT INTO tasks VALUES ( DEFAULT, 'Study SQL', 'Complete this exercise', NOW (), NOW(), NULL );
 
+INSERT INTO tasks (title, description)
+VALUES('Study PostgreSQL', 'Read all of the documentation');
 
-SELECT * FROM tasks;
+SELECT title FROM tasks WHERE completed_at IS NULL;
